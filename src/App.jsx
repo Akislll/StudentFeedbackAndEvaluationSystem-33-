@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Toaster } from "./components/ui/sonner";
 
-// Direct imports instead of lazy loading to avoid compatibility issues
+
 import Landing from "./components/Landing";
 import StudentLogin from "./components/StudentLogin";
 import TeacherLogin from "./components/TeacherLogin";
@@ -23,10 +23,6 @@ import { SettingsPage } from "./components/SettingsPage";
 import { ActionLog } from "./components/ActionLog";
 import { StudentActionLog } from "./components/StudentActionLog";
 
-/** =========================
- *  SIMPLE JS DATA MODELS
- *  (removed TS `type`/`interface`)
- *  ========================= */
 
 const mockUsers = {
   students: [
@@ -88,10 +84,10 @@ export default function App() {
   };
 
   const registerUser = (userData, role) => {
-    // role: "student" | "teacher"
+    
     const userDatabase = role === "student" ? users.students : users.teachers;
     const existingUser = userDatabase.find((u) => u.email === userData.email);
-    if (existingUser) return false; // already exists
+    if (existingUser) return false; 
 
     const newUser = {
       id: (userDatabase.length + 1).toString(),
